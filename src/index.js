@@ -1,4 +1,6 @@
 import "./styles.css";
 import { extract_data } from "./extract_data.js";
+import { translate } from "./means.js";
 
-extract_data();
+let data = await translate()
+console.log(data)
