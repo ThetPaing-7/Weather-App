@@ -45,7 +45,7 @@ async function translate() {
   };
 
 
-  console.log("Hello")
+  
   return {
     humidity_conditions: humidity_conditions(humidity),
     air_pressure_conditions: air_pressure_conditions(air_pressure),

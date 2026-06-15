@@ -16,6 +16,8 @@ async function extract_data() {
     extracted_data[condition] = conditions[condition];
   }
 
+  console.log(extracted_data)
+
   return extracted_data
 }
 
