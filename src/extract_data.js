@@ -4,7 +4,6 @@ async function extract_data() {
   let extracted_data = {};
   const response = await data();
 
-  console.log(Object.keys(response));
 
   extracted_data.description = response["description"];
   extracted_data.alert = response["alerts"];
@@ -16,8 +15,7 @@ async function extract_data() {
     extracted_data[condition] = conditions[condition];
   }
 
-  console.log(extracted_data);
-
+  console.log(extracted_data)
   return extracted_data;
 }
 
