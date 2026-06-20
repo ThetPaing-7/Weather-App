@@ -44,14 +44,11 @@ async function translate() {
     }
   };
 
-
-  
   return {
     humidity_conditions: humidity_conditions(humidity),
     air_pressure_conditions: air_pressure_conditions(air_pressure),
     uvindex_conditions: uvindex_conditions(uvindex),
   };
-
 }
 
 export { translate };
