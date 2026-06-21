@@ -1,3 +1,4 @@
 import { start_page } from "./start.js";
+import { get_city } from "./get_city.js";
 
-start_page()
+get_city()

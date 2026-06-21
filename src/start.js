@@ -43,7 +43,8 @@ export async function start_page(){
     icons_picture.src = pic
     const saturation= element_factory.create({element_name:"div",text:conditions,id:"conditions"})
     const des = element_factory.create({element_name:"div",text:description})
-    element_factory.pushElements(container_two,[temperature,feels,icons_picture,saturation,des,cloud])
+    const dewss = element_factory.create({element_name:"div",text:`Dew: ${dew}`})
+    element_factory.pushElements(container_two,[temperature,feels,icons_picture,saturation,des,dewss,cloud])
 
     // 1st Row left section
     const container_three = document.getElementById("container_3")
@@ -54,6 +55,35 @@ export async function start_page(){
         const element = element_factory.create({element_name:"div",text:`${section3_label[i]}: ${section3_data[i]}`})
         container_three.append(element)
     }
+
+
+    // 2nd row left section
+    const meanings = await translate()
+    const{humidity_conditions,air_pressure_conditions,uvindex_conditions} = meanings
+
+    const container_four = document.getElementById("container_4")
+    const humidity_label = element_factory.create({element_name:"div",text:"Humidity",class_name:"card-title"}) 
+    const humid = element_factory.create({element_name:"div",text:humidity,class_name:"card-value"})
+    const humid_means = element_factory.create({element_name:"div",text:humidity_conditions,class_name:"card-status"})
+
+    element_factory.pushElements(container_four,[humidity_label,humid,humid_means])
+
+    // 2nd row mid section
+    const container_five = document.getElementById("container_5")
+    const pressure_label = element_factory.create({element_name:"div",text:"Air Pressure",class_name:"card-title"}) 
+    const prees = element_factory.create({element_name:"div",text:pressure,class_name:"card-value"})
+    const pressure_means = element_factory.create({element_name:"div",text:air_pressure_conditions,class_name:"card-status"})
+
+    element_factory.pushElements(container_five,[pressure_label,prees,pressure_means])
+
+    // 2nd row right section
+    const container_six = document.getElementById("container_6")
+    const uv_label = element_factory.create({element_name:"div",text:"Ultraviolet Index",class_name:"card-title"}) 
+    const uv = element_factory.create({element_name:"div",text:uvindex,class_name:"card-value"})
+    const uv_means = element_factory.create({element_name:"div",text:uvindex_conditions,class_name:"card-status"})
+
+    element_factory.pushElements(container_six,[uv_label,uv,uv_means])
+
 }
 
 

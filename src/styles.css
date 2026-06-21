@@ -1,82 +1,288 @@
 * {
-  border: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-#container {
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 1fr 2fr 1fr ;
-  grid-template-rows: 3fr 2fr;
+body {
+  min-height: 100vh;
+
+  font-family: Inter, "Segoe UI", sans-serif;
+
+  background:
+    radial-gradient(circle at top left, #0d2559 0%, transparent 35%),
+    radial-gradient(circle at top right, #15082b 0%, transparent 35%),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #111827,
+      #1e293b
+    );
+
+  color: #f8fafc;
 }
 
+#container {
+  min-height: 100vh;
+
+  display: grid;
+
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+
+  gap: 1.5rem;
+
+  padding: 2rem;
+}
+
+/* ========================
+   Shared Card Style
+======================== */
+
+.container_1,
+.container_2,
+.container_3,
+.container_4,
+.container_5,
+.container_6 {
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  padding: 1.5rem;
+
+  transition: all 0.3s ease;
+}
+
+/* ========================
+   Left Panel
+======================== */
+
 .container_1 {
-  grid-area: 1/1/2/2;
-  margin: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+
+  gap: 0.8rem;
 }
 
-
-
-.container_1 > *{
-  padding: 0.5rem;
-  font-size: 1.3rem;
-  font-weight: 400;
+.container_1 > * {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
 }
 
-#temperature{
-  font-size: 4rem;
+.container_1 p:first-child {
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  color: #ffffff;
 }
 
-#conditions{
-  font-size: 1.2rem;
-  font-weight: 600;
+.container_1 p:not(:first-child) {
+  color: rgba(255, 255, 255, 0.8);
 }
+
+/* ========================
+   Center Main Weather
+======================== */
 
 .container_2 {
-  grid-area: 1/2/2/3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  text-align: center;
 }
 
-
-.container_2 > *{
-  margin: 1rem 0rem;
+.container_2 > * {
+  padding: 0.5rem 0;
 }
 
+#temperature {
+  font-size: 7rem;
+  font-weight: 700;
 
-.container_3 > *{
-  margin: 0.5rem 0rem;
-  font-size: 1.3rem;
+  line-height: 1;
+
+  background: linear-gradient(
+    135deg,
+    #60a5fa,
+    #38bdf8,
+    #a78bfa
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+#conditions {
+  font-size: 2rem;
+  font-weight: 600;
+
+  color: #ffffff;
+}
+
+#description {
+  max-width: 450px;
+
+  color: rgba(248, 250, 252, 0.75);
+
+  line-height: 1.7;
+}
+
+.weather-icon {
+  width: 110px;
+  height: 110px;
+
+  filter: drop-shadow(
+    0 0 15px rgba(96, 165, 250, 0.4)
+  );
+}
+
+/* ========================
+   Right Panel
+======================== */
 
 .container_3 {
-  grid-area: 1/3/2/4;
-}
-
-.container_1,
-.container_3{
-  margin: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+
+  gap: 1rem;
 }
 
-.container_4 {
-  grid-area: 2/1/3/2;
+.metric {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 0.7rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.container_5 {
-  grid-area: 2/2/3/3;
+.metric span:first-child {
+  color: rgba(255, 255, 255, 0.75);
 }
 
+.metric span:last-child {
+  color: #7dd3fc;
+  font-weight: 600;
+}
+
+/* ========================
+   Bottom Cards
+======================== */
+
+.container_4,
+.container_5,
 .container_6 {
-  grid-area: 2/3/3/4;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  gap: 0.6rem;
+}
+
+.card-title {
+  font-size: 0.85rem;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: #e0f2fe;
+}
+
+.card-status {
+  color: #22d3ee;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* ========================
+   Hover Effect
+======================== */
+
+.container_1:hover,
+.container_2:hover,
+.container_3:hover,
+.container_4:hover,
+.container_5:hover,
+.container_6:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(
+    96,
+    165,
+    250,
+    0.3
+  );
+
+  box-shadow:
+    0 15px 40px rgba(
+      37,
+      99,
+      235,
+      0.15
+    ),
+    0 8px 24px rgba(
+      0,
+      0,
+      0,
+      0.3
+    );
+}
+
+/* ========================
+   Responsive
+======================== */
+
+@media (max-width: 1000px) {
+  #container {
+    grid-template-columns: 1fr;
+  }
+
+  #temperature {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #container {
+    padding: 1rem;
+  }
+
+  #temperature {
+    font-size: 4rem;
+  }
+
+  #conditions {
+    font-size: 1.5rem;
+  }
+
+  .weather-icon {
+    width: 80px;
+    height: 80px;
+  }
 }
