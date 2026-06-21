@@ -12,6 +12,13 @@ class element_factory{
 
         return element
     }
+
+    static pushElements(parentElement,childElement){
+
+        for(let i = 0; i < childElement.length; i++){
+            parentElement.append(childElement[i])
+        }
+    }
 }
 
 

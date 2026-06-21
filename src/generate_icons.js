@@ -52,6 +52,5 @@ export async function get_icons() {
   };
 
   let { icon } = await extract_data();
-  icon = "snow"
-  console.log(weatherIcons[icon]);
+  return weatherIcons[icon];
 }

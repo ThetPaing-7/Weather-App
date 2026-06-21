@@ -3,11 +3,11 @@ import data from "./get_data.js";
 async function extract_data() {
   let extracted_data = {};
   const response = await data();
-
-
+  
+  extracted_data.this_day = response.days[0].datetime
   extracted_data.description = response["description"];
   extracted_data.alert = response["alerts"];
-  extracted_data.address = response["address"];
+  extracted_data.address = response["resolvedAddress"];
 
   let conditions = response["currentConditions"];
 
@@ -15,7 +15,6 @@ async function extract_data() {
     extracted_data[condition] = conditions[condition];
   }
 
-  console.log(extracted_data)
   return extracted_data;
 }
 
