@@ -5,12 +5,16 @@ import { get_icons } from "./generate_icons.js";
 import { element_factory } from "./element_factory.js";
 import { to_celsious } from "./unit_conversion.js";
 
+
 let data = await translate();
 
-export async function start_page(){
+export async function start_page(city){
+
     const container = document.getElementById("container")
-    let extracted_data = await extract_data()
-    console.log(extracted_data)
+    container.innerHTML=""
+
+
+    let extracted_data = await extract_data(city)
     const {this_day,address,cloudcover,conditions,datetime,description,dew,feelslike,humidity,icon,moonphase,pressure,snow,snowdepth,solarenergy,solarradiation,source,stations,sunrise,sunset,temp,uvindex,visibility,winddir,windgust,windspeed} = extracted_data
 
     const sub_container_size = 6
