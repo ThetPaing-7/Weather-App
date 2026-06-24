@@ -1,14 +1,9 @@
-import { extract_data } from "./extract_data.js";
+import { extracted_data } from "./extract_data.js";
 
 async function translate() {
-  let weather_objects = await extract_data();
+  let weather_objects = await extracted_data;
 
-  const {
-    humidity,
-    pressure: air_pressure,
-    uvindex,
-    moonphase,
-  } = weather_objects;
+  const { humidity, pressure: air_pressure, uvindex } = weather_objects;
 
   const humidity_conditions = (humidity) => {
     if (20 < humidity < 40) {

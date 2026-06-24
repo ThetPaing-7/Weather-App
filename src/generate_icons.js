@@ -23,7 +23,7 @@ import thunderShowersNight from "./asset/icons/thunder-showers-night.png";
 import wind from "./asset/icons/wind.png";
 
 // import icon text
-import { extract_data } from "./extract_data.js";
+import { extracted_data } from "./extract_data.js";
 
 export async function get_icons() {
   const weatherIcons = {
@@ -51,6 +51,6 @@ export async function get_icons() {
     wind: wind,
   };
 
-  let { icon } = await extract_data();
+  let { icon } = await extracted_data;
   return weatherIcons[icon];
 }
